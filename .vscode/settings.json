@@ -1,0 +1,39 @@
+{
+    "editor.smoothScrolling": true,
+    "editor.trimWhitespaceOnDelete": false,
+    "editor.unicodeHighlight.allowedLocales": {
+        "_GitHub": true
+    },
+    "search.showLineNumbers": true,
+    "search.smartCase": true,
+    "search.seedWithNearestWord": false,
+    "search.searchView.semanticSearchBehavior": "auto",
+    "search.searchView.keywordSuggestions": true,
+    "editor.overtypeCursorStyle": "block",
+    "editor.cursorBlinking": "smooth",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "files.autoGuessEncoding": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveWhenNoErrors": true,
+    "workbench.commandPalette.experimental.suggestCommands": true,
+    "workbench.commandPalette.preserveInput": true,
+
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.formatOnSave": true
+    },
+    "[javascriptreact]": {
+      "editor.formatOnSave": true
+    },
+    "[typescript]": {
+      "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+      "editor.formatOnSave": true
+    },
+    "[json]": {
+      "editor.formatOnSave": true
+    }
+  }
