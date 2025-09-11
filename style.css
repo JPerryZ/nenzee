@@ -1,0 +1,73 @@
+:root{
+  --sage:#9CAF88; --blush:#EBC7C1; --ivory:#F8F7F2; --charcoal:#333333;
+  --container:1120px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif,cursive;
+  color:var(--charcoal); background:var(--ivory); line-height:1.6;
+}
+
+h1,h2,h3{font-family:'Playfair Display',serif; line-height:1.2; margin:0 0 .5rem}
+.section__title{font-size:1.75rem; margin-bottom:1rem}
+
+.container{max-width:var(--container); margin:0 auto; padding:0 1rem}
+
+.site-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.75rem 1rem; position:sticky; top:0; background:rgba(248,247,242,.9); z-index:10;
+}
+.site-nav{display:none; gap:1rem}
+.site-nav a{text-decoration:none; color:var(--charcoal); font-weight:700}
+.nav-toggle{background:none;border:1px solid var(--charcoal);padding:.5rem .75rem;border-radius:6px}
+
+.hero{
+  position:relative; min-height:68vh; display:grid; place-items:center; text-align:center;
+  background:url("assets\willowpineheropic.png") center/cover no-repeat;
+}
+.hero__overlay{position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.45))}
+.hero__content{position:relative; color:white; padding:2rem}
+.hero h1{font-style:italic;color: #333431; font-size:  5rem; margin-bottom:.5rem}
+.hero h2{font: size 1rem; margin-bottom:.5rem}
+.hero p{max-width:680px; margin:0 auto 1rem}
+
+.section{padding:3rem 0}
+.section--alt{background:white}
+
+.cards{display:grid; gap:1rem; grid-template-columns:1fr}
+.card{background:white; border:1px solid #e8e5e0; border-radius:12px; padding:1rem}
+.card h3{margin-bottom:.25rem}
+
+details.services__all{margin-top:1rem}
+.list{margin:.5rem 0 0 1rem}
+
+.form{max-width:640px}
+.field{display:flex; flex-direction:column; margin-bottom:1rem}
+input,textarea{
+  padding:.75rem; border-radius:8px; border:1px solid #ddd; background:#fff; font:inherit
+}
+.btn{display:inline-block; padding:.75rem 1.25rem; border-radius:999px; text-decoration:none; border:0; cursor:pointer}
+.btn--primary{background:var(--sage); color:white}
+.btn--primary:hover{filter:brightness(.95)}
+
+.site-footer{padding:2rem 0; background:#fff}
+.footer__grid{display:grid; gap:1rem}
+.social a{display:inline-block; margin-right:1rem}
+
+.hidden{display:none}
+
+@media(min-width:768px){
+  .site-nav{display:flex}
+  .nav-toggle{display:none}
+  .hero h1{font-size:2.5rem}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .footer__grid{grid-template-columns:1fr auto}
+}
+
+@media(min-width:1024px){
+  .hero{min-height:78vh}
+  .cards{grid-template-columns:repeat(4,1fr)}
+  .section__title{font-size:2rem}
+}
