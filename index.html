@@ -1,0 +1,95 @@
+
+<!-- index.html — Landing page (root) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>nenzee — **BOLD: Site Tagline**</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- Inline note: main.js handles nav behaviors and fetches searchIndex.json -->
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="container site-nav" role="banner">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">N</div>
+      <div>
+        <div style="font-weight:700;color:#fff">nenzee</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.6)">**BOLD: Short site subtitle**</div>
+      </div>
+    </div>
+
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="stories/story-1/index.html">Stories</a>
+      <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
+    </nav>
+
+    <div class="search-bar" role="search" aria-label="Site search">
+      <input id="site-search" class="search-input" type="search" placeholder="Search the whole site..." aria-label="Search site" />
+      <button id="search-btn" class="btn" aria-label="Search">Search</button>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section aria-labelledby="hero-title">
+      <h1 id="hero-title" style="font-size:clamp(1.6rem,3vw,2.4rem);margin:8px 0;color:#fff">**BOLD: Welcome to Nenzee**</h1>
+      <p style="max-width:60ch;color:rgba(255,255,255,0.8)">**BOLD: Subheading describing the project — replace with your text.**</p>
+    </section>
+
+    <section aria-labelledby="stories-title" style="margin-top:18px">
+      <h2 id="stories-title">Explore Stories</h2>
+      <!-- Four main cards -->
+      <div id="main-cards" class="grid" aria-live="polite">
+        <!-- Each card loads story-*. The data-* attributes help card-local search -->
+        <article class="card" data-story="story-1" role="article" tabindex="0">
+          <h3>**BOLD: Story 1 Title**</h3>
+          <p>**BOLD: Short description for Story 1.**</p>
+          <div style="margin-top:auto">
+            <a class="btn" href="stories/story-1/index.html" aria-label="Open Story 1">Open story</a>
+            <a class="btn secondary" href="stories/story-1/index.html#chapters" style="margin-left:8px">Chapters</a>
+          </div>
+        </article>
+
+        <article class="card" data-story="story-2" role="article" tabindex="0">
+          <h3>**BOLD: Story 2 Title**</h3>
+          <p>**BOLD: Short description for Story 2.**</p>
+          <div style="margin-top:auto">
+            <a class="btn" href="stories/story-2/index.html">Open story</a>
+          </div>
+        </article>
+
+        <article class="card" data-story="story-3" role="article" tabindex="0">
+          <h3>**BOLD: Story 3 Title**</h3>
+          <p>**BOLD: Short description for Story 3.**</p>
+          <div style="margin-top:auto">
+            <a class="btn" href="stories/story-3/index.html">Open story</a>
+          </div>
+        </article>
+
+        <article class="card" data-story="story-4" role="article" tabindex="0">
+          <h3>**BOLD: Story 4 Title**</h3>
+          <p>**BOLD: Short description for Story 4.**</p>
+          <div style="margin-top:auto">
+            <a class="btn" href="stories/story-4/index.html">Open story</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="search-results" style="margin-top:24px" aria-live="polite"></section>
+
+    <footer class="site-footer">
+      <div>© **BOLD: Your Name or Nenzee** — **BOLD: Year**</div>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/search.js"></script>
+  <!-- main.js sets up search button to invoke search.js functionality -->
+</body>
+</html>

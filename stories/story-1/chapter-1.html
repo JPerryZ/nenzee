@@ -1,0 +1,59 @@
+<!-- stories/story-1/chapter-1.html — chapter content + comments -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chapter 1 — **BOLD: Chapter Title**</title>
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+</head>
+<body>
+  <a class="skip-link" href="#chapter-main">Skip to content</a>
+
+  <header class="container site-nav">
+    <div class="brand"><a href="../../index.html" style="display:flex;align-items:center;gap:12px"><div class="logo">N</div><div style="font-weight:700;color:#fff">nenzee</div></a></div>
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="../../index.html">Home</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+      <a href="../index.html">Back to Story</a>
+    </nav>
+    <div class="search-bar" role="search">
+      <input id="chapter-search" class="search-input" type="search" placeholder="Search within this chapter..." />
+      <button id="chapter-search-btn" class="btn">Search</button>
+    </div>
+  </header>
+
+  <main id="chapter-main" class="container" role="main">
+    <article>
+      <h1>Chapter 1 — **BOLD: Chapter Title**</h1>
+      <p>**BOLD: Full chapter text goes here. Replace with your content.**</p>
+      <!-- If you add media, add captions and transcripts for accessibility -->
+    </article>
+
+    <!-- Comments section — each chapter page has comment UI -->
+    <section id="comments" class="comments" aria-labelledby="comments-title">
+      <h2 id="comments-title">Comments</h2>
+
+      <!-- Comment form — posts comments as 'pending' -->
+      <form id="comment-form" aria-label="Add a comment" onsubmit="return false;">
+        <label for="comment-name">Name</label><br />
+        <input id="comment-name" required /><br />
+        <label for="comment-body">Comment</label><br />
+        <textarea id="comment-body" rows="4" required></textarea><br />
+        <button id="comment-post" class="btn" type="button">Post comment (will be pending)</button>
+      </form>
+
+      <div id="comment-list" style="margin-top:12px" aria-live="polite"></div>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.6)">Comments are posted as <strong>pending</strong> and require admin approval. Use the <a href="../../admin.html">Admin</a> page to moderate.</p>
+    </section>
+
+    <footer class="site-footer">
+      <div><a href="../index.html">← Back to Story</a> • <a href="../../index.html">Home</a></div>
+    </footer>
+  </main>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/comments.js"></script>
+</body>
+</html>

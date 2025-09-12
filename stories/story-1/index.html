@@ -1,0 +1,59 @@
+<!-- stories/story-1/index.html — Story 1 landing page with chapter cards -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>**BOLD: Story 1 Title** — Nenzee</title>
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+</head>
+<body>
+  <a class="skip-link" href="#story-main">Skip to content</a>
+
+  <header class="container site-nav" role="banner">
+    <div class="brand"><a href="../../index.html" style="display:flex;align-items:center;gap:12px"><div class="logo">N</div><div style="font-weight:700;color:#fff">nenzee</div></a></div>
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="../../index.html">Home</a>
+      <a href="../../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </nav>
+
+    <div class="search-bar" role="search">
+      <input id="story-search" class="search-input" type="search" placeholder="Search this story and chapters..." aria-label="Search story" />
+      <button id="story-search-btn" class="btn">Search</button>
+    </div>
+  </header>
+
+  <main id="story-main" class="container" role="main">
+    <h1>**BOLD: Story 1 Title**</h1>
+    <p>**BOLD: Longer description of the story.**</p>
+
+    <section id="chapters" aria-labelledby="chapters-title">
+      <h2 id="chapters-title">Chapters</h2>
+      <div id="chapter-cards" class="grid">
+        <!-- 10 chapters; adjust as needed. Each chapter page should include comments UI. -->
+        <!-- Example: chapter-1 -->
+        <article class="card" data-chapter="chapter-1" tabindex="0">
+          <h3>Chapter 1 — **BOLD: Chapter Title**</h3>
+          <p>**BOLD: Brief summary of chapter 1.**</p>
+          <div style="margin-top:auto">
+            <a class="btn" href="chapter-1.html">Read chapter</a>
+          </div>
+        </article>
+
+        <!-- copy and adjust for chapter-2..chapter-10 -->
+        <!-- ... -->
+      </div>
+    </section>
+
+    <section id="story-search-results" style="margin-top:18px" aria-live="polite"></section>
+
+    <footer class="site-footer">
+      <div><a href="../../index.html">← Home</a> • © **BOLD: Your Name**</div>
+    </footer>
+  </main>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>
