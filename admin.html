@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-  <div class="container" style="padding-top:32px;">
+  <div class="container">
     <h1>Admin — Moderate Pending Comments</h1>
     <p>Enter the admin passphrase to view pending comments. (Demo only — do not use on public without server auth.)</p>
 
     <label for="admin-pass">Admin passphrase</label><br />
-    <input id="admin-pass" type="password" /><button id="admin-enter" class="btn" style="margin-left:8px">Enter</button>
+    <input id="admin-pass" type="password" /><button id="admin-enter" class="btn">Enter</button>
 
-    <div id="admin-area" style="margin-top:18px;display:none">
+    <div id="admin-area">
       <h2>Pending comments</h2>
       <div id="pending-list"></div>
     </div>
 
-    <p style="margin-top:20px;color:rgba(255,255,255,0.6)">Notes: Comments are stored in localStorage under key <code>nenzee_comments</code>. When you integrate a real DB (SQL), replace the comments.js functions to POST and GET to your backend. See README for recommended integrations.</p>
+    <p class="admin-notes">Notes: Comments are stored in localStorage under key <code>nenzee_comments</code>. When you integrate a real DB (SQL), replace the comments.js functions to POST and GET to your backend. See README for recommended integrations.</p>
   </div>
 
   <script>

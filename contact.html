@@ -1,0 +1,42 @@
+<!-- contact.html — dummy contact form; prepared for future SQL integration -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Nenzee</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contact-main">Skip to content</a>
+  <header class="container site-nav">
+    <div class="brand">
+      <a href="index.html" class="brand-link">
+        <div class="logo">N</div>
+        <div class="brand-name">nenzee</div>
+      </a>
+    </div>
+    <nav class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a></nav>
+    <div class="search-bar"><input id="contact-search" class="search-input" type="search" placeholder="Search..." /><button id="contact-search-btn" class="btn">Search</button></div>
+  </header>
+
+  <main id="contact-main" class="container">
+    <h1>Contact</h1>
+    <p>**BOLD: Replace with how you'd like visitors to reach you.**</p>
+
+    <form id="contact-form" onsubmit="return false;" aria-label="Contact form">
+      <label for="c-name">Name</label><br />
+      <input id="c-name" required /><br />
+      <label for="c-email">Email</label><br />
+      <input id="c-email" type="email" required /><br />
+      <label for="c-message">Message</label><br />
+      <textarea id="c-message" rows="5" required></textarea><br />
+      <p class="contact-demo-note">This demo currently does not submit to a database. When ready, you can wire this to server-side SQL endpoints or Netlify Functions. See README for suggested services.</p>
+      <button id="c-submit" class="btn" type="button">Send (Dummy)</button>
+    </form>
+
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
