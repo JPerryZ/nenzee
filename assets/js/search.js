@@ -93,5 +93,7 @@
   });
 
   // expose on window for manual invocation
-  window.nenzeeSearch = (q, scope) => runSearch(q, scope);
+  window.nenzeeSearch = function (q, scope) {
+    return runSearch(q, scope);
+  };
 })();
