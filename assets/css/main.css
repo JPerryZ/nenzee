@@ -65,12 +65,14 @@ body {
   cursor: pointer;
   border-radius: 4px;
 }
+
 .search-form button:hover {
-  background-color: #1abc9c; /* Lighter teal */
+  background-color: blue; /* Lighter teal */
 }
 
 
 /* ================== INTRO ================== */
+
 .intro {
   text-align: center;
   padding: 2rem;
