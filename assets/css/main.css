@@ -13,12 +13,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
 }
 
 .skip-link {
   position: flex;
-  left: 0;
+  float: left: 0;
   background: #000;
   color: #fff;
 }
