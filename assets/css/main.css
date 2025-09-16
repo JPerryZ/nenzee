@@ -17,12 +17,11 @@ body {
 }
 
 .skip-link {
-  position: absolute;
+  position: flex;
   left: 0;
   background: #000;
   color: #fff;
 }
-
 
 .nav-logo {
   font-size: 1.5rem;
