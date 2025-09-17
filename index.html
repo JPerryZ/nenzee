@@ -2,11 +2,12 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="google-adsense-account" content="ca-pub-9429571484429929">
-  <title>StorySite</title>
+  <title>NextChapterInk</title>
   <link rel="stylesheet" href="assets\css\main.css">
   <link rel="main.js" href="assets\js\main.js">
   <link rel="search.js" href="assets\js\search.js">
@@ -15,6 +16,7 @@
   <!-- Inline note: main.js handles nav behaviors and fetches searchIndex.json -->
 
 </head>
+
 <body>
   <header role="banner">
   <header class="container site-nav" role="banner">
@@ -28,8 +30,7 @@
 
         <a class="skip-link" href="#main"><img src="images\NNZLogo.png" 
           alt="Main Page" height="40"/></a>      
-      
-      </a>  
+        </a>  
   
   </div>  
   </header>
@@ -39,22 +40,29 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="stories/story-1/index.html">Stories</a>
+      <a href="stories\story-1\Mudcreek.html">Stories</a>
       <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
     </nav>
   </header>
 
   <main id="main" class="container" role="main">
-    <section aria-labelledby="hero-title">
-      <h1 id="hero-title">**BOLD: Welcome to Nenzee**</h1>
-      <p class="hero-subheading">**BOLD: Subheading describing the project — replace with your text.**</p>
+
+    <!-- Hero section with welcome message -->
+
+    <section aria-labelledby ="hero-title">
+      <h1 id="hero-title">Welcome <br> to <br> Next Chapter Ink</h1>
+      <p class="hero-subheading">Stories at Your Fingertips</p>
     </section>
 
     <section aria-labelledby="stories-title" class="stories-section">
-      <h2 id="stories-title">Explore Stories</h2>
+      <h2 id="stories-title">Explore Further</h2>
+
       <!-- Four main cards -->
+      
       <div id="main-cards" class="grid" aria-live="polite">
+        
         <!-- Each card loads story-*. The data-* attributes help card-local search -->
+
         <article class="card" data-story="story-1" role="article" tabindex="0">
           <h3>**BOLD: Story 1 Title**</h3>
           <p>**BOLD: Short description for Story 1.**</p>
@@ -65,24 +73,24 @@
         </article>
 
         <article class="card" data-story="story-2" role="article" tabindex="0">
-          <h3>**BOLD: Story 2 Title**</h3>
-          <p>**BOLD: Short description for Story 2.**</p>
+          <h3>**Coming Soon*</h3>
+          <p>**Keep on the lookout**</p>
           <div class="card-footer card-footer-auto-margin">
             <a class="btn" href="stories/story-2/index.html">Open story</a>
           </div>
         </article>
 
         <article class="card" data-story="story-3" role="article" tabindex="0">
-          <h3>**BOLD: Story 3 Title**</h3>
-          <p>**BOLD: Short description for Story 3.**</p>
+          <h3>**Coming Soon*</h3>
+          <p>**Keep on the lookout**</p>
           <div class="card-footer">
             <a class="btn" href="stories/story-3/index.html">Open story</a>
           </div>
         </article>
 
         <article class="card" data-story="story-4" role="article" tabindex="0">
-          <h3>**BOLD: Story 4 Title**</h3>
-          <p>**BOLD: Short description for Story 4.**</p>
+          <h3>**Coming Soon*</h3>
+          <p>**Keep on the lookout**</p>
           <div class="card-footer">
             <a class="btn" href="stories/story-4/index.html">Open story</a>
           </div>
@@ -93,7 +101,7 @@
     <section id="search-results" aria-live="polite"></section>
 
     <footer class="site-footer">
-      <div>© **BOLD: Your Name or Nenzee** — **BOLD: Year**</div>
+      <div>©  — Nenzee.com : 2025 </div>
     </footer>
   </main>
 
@@ -101,6 +109,8 @@
   <script src="assets/js/search.js"></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9429571484429929"
      crossorigin="anonymous"></script>
+
   <!-- main.js sets up search button to invoke search.js functionality -->
-</body>
+
+  </body>
 </html>

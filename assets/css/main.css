@@ -1,4 +1,5 @@
 /* ================== GLOBAL STYLES ================== */
+
 body {
   font-family: Arial, sans-serif; /* Accessible font */
   line-height: 1.6; /* Improves readability */
@@ -87,12 +88,18 @@ body {
 
 
 /* ================== INTRO ================== */
+
 .intro {
   text-align: center;
   padding: 2rem;
 }
 
+.hero-title {
+  position:absolute; inset: 0; background:linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.45))}
+  color: #2980b9; /* Bright blue */
+}
 /* ================== CARDS ================== */
+
 .storyline-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
