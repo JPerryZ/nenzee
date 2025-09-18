@@ -91,10 +91,10 @@ body {
 main {
   background-color: teal;
   text-align: center;
+  font-size: 50px;
   padding: 2px;
   font-style: italic;
   font-display:block;
-  font-size: 20px;
   margin-bottom: 1rem;
   color: rgb(29, 1, 96);
 }
@@ -106,6 +106,9 @@ main .hero-subheading {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
+
+
 /* ================== CARDS ================== */
 
 .storyline-grid {
