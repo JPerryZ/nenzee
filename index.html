@@ -12,9 +12,7 @@
   <link rel="main.js" href="assets\js\main.js">
   <link rel="search.js" href="assets\js\search.js">
   <link rel="comment.js" href="assets\js\comment.js">
-
   <!-- Inline note: main.js handles nav behaviors and fetches searchIndex.json -->
-
 </head>
 
 <body>
@@ -40,7 +38,6 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="stories\story-1\Mudcreek.html">Stories</a>
       <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
     </nav>
   </header>
@@ -64,11 +61,11 @@
         <!-- Each card loads story-*. The data-* attributes help card-local search -->
 
         <article class="card" data-story="story-1" role="article" tabindex="0">
-          <h3>**BOLD: Story 1 Title**</h3>
-          <p>**BOLD: Short description for Story 1.**</p>
+          <h3>Mudcreek</h3>
+          <p>The Knights of Mudcreek</p>
           <div class="card-footer">
-            <a class="btn" href="stories/story-1/index.html" aria-label="Open Story 1">Open story</a>
-            <a class="btn secondary card-chapters-link" href="stories/story-1/index.html#chapters">Chapters</a>
+            <a class="btn" href="stories\Mudcreek\mudcreek.html" aria-label="Open Story 1">Open story</a>
+            <a class="btn secondary card-chapters-link" href="stories/Mudcreek/index.html#chapters">Chapters</a>
           </div>
         </article>
 
@@ -101,7 +98,7 @@
     <section id="search-results" aria-live="polite"></section>
 
     <footer class="site-footer">
-      <div>©  — Nenzee.com : 2025 </div>
+      <div>© NextChapterInk — Nenzee.com : 2025 </div>
     </footer>
   </main>
 
