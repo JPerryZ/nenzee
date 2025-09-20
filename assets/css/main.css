@@ -7,7 +7,7 @@ body {
   background-color: #f9fafc; /* Soft background */
   color: #222; /* High contrast text */
 }
-7
+
 /* ================== NAVBAR ================== */
 
 
@@ -29,12 +29,26 @@ body {
   margin-left: 100px;
 }
 
+
 .search-bar  {
   display: flex;
   background-size: contain;
   padding: 10px;
   float: right;
 }
+
+.search-form button {
+  background-color: #16a085; /* Teal */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.search-form button:hover {
+  background-color: #1abc9c; /* Lighter teal */
+}
+
 
 .nav-logo {
   font-size: 25px;
@@ -58,7 +72,7 @@ body {
 
 .nav-links a {
   color: #fff;
-  font-size: 35px;
+  font-size: 30px;
   text-decoration: none;
 }
 
@@ -73,36 +87,23 @@ body {
   border: none;
 }
 
-.search-form button {
-  background-color: #16a085; /* Teal */
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.search-form button:hover {
-  background-color: #1abc9c; /* Lighter teal */
-}
 
 /* ================== INTRO ================== */
 
 main {
   background-color: rgb(2, 3, 3);
   text-align: center;
-  font-size: 50px;
+  font-size: 35px;
   padding: 1px;
   font-style: italic;
   font-display:block;
-  color: rgb(29, 1, 96);
+  color: #27ae60;
 }
 
 .hero-title{
   font-style: italic;
   font-display:block;
   color: #2980b9; /* Blue */
-  font-size: 100px;
-  margin-bottom: 1rem;
 }
 
 .hero-subheading {
@@ -113,11 +114,11 @@ main {
   margin-bottom: 1rem;
 }
 
-.stories-section {
+.hero-title .stories-title{
 font-style: italic;
 font-display: block;
 color: #ecf0f1;
-font-size: 55px;
+font-size: 25px;
 }
 
 /* ================== CARDS ================== */
@@ -133,7 +134,7 @@ font-size: 55px;
   background-color: #ecf0f1; /* Light gray */
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 2px 6px 6px 2px rgba(0,0,0,0.1);
   transition: transform 0.2s ease-in-out;
 }
 .card:hover {
