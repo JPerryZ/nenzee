@@ -10,30 +10,17 @@ body {
 
 /* ================== NAVBAR ================== */
 
-
-.container site-nav{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;  
-}
-
-.logo{
-  background-color: teal;
-  padding: 10px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .skip-link {
-  display: flex;
-  background-size: contain;
-  padding: 10px;
-  margin-left: 100px;
-}
-
-.search-bar  {
-  display: flex;
-  background-size: contain;
-  padding: 10px;
-  float: right;
+  position: flex;
+  float: left: 0;
+  background: #000;
+  color: #fff;
 }
 
 .nav-logo {
@@ -81,11 +68,14 @@ body {
   cursor: pointer;
   border-radius: 4px;
 }
+
 .search-form button:hover {
-  background-color: #1abc9c; /* Lighter teal */
+  background-color: blue; /* Lighter teal */
 }
 
 /* ================== INTRO ================== */
+
+.intro {
 
 main {
   background-color: rgb(2, 3, 3);
