@@ -9,15 +9,42 @@ body {
 
 /* ================== NAVBAR ================== */
 
+.main {
+  background-color: #2c3e50; 
+  color: #ddd;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
-.container site-nav{
+.container site-nav {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;  
+  padding: 0 1rem; 
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  color: antiquewhite(22, 19, 15);
+  height: 60px;
+  position: center; 
+  justify-content: space-between;
+  background-color: #34495e;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-subheading {
+  font-size: 20px;
+  color: #ddd;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 20px;
 }
 
 .logo{
-  background-color: teal;
+  background-color: #34495e;
   padding: 10px;
 }
 
@@ -44,7 +71,7 @@ body {
 }
 
 .nav-links {
-  font-size: 15px;
+  font-size: 13px;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -74,7 +101,7 @@ body {
 }
 
 .search-form button {
-  background-color: #16a085; /* Teal */
+  background-color: #2c3e50; 
   color: white;
   border: none;
   padding: 0.5rem 1rem;
