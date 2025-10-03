@@ -6,7 +6,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="google-adsense-account" content="ca-pub-9429571484429929">
+
   <title>Nenzee.com</title>
+
   <link rel="stylesheet" href="assets\css\main.css">
   <link rel="main.js" href="assets\js\main.js">
   <link rel="search.js" href="assets\js\search.js">
@@ -21,21 +23,20 @@
   <header class="container site-nav" role="banner"> 
       <div class="logo" aria-hidden="true">
         <a class="search-bar" role="search" aria-label="Site search">
-          <input id="site-search" class="search-input" type="search" 
+    <input id="site-search" class="search-input" type="search" 
             placeholder="Search the entire site..." aria-label="Search site" />
-          <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
-
+    <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
         <a class="skip-link" href="#main"><img src="images\NNZLogo.png" 
           alt="Main Page" height="40"/></a>  
       </div>   
-    </header>
+  </header>
 
     <header>
       <nav class="nav-links" role="navigation" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="stories/story-1/index.html">Sites</a>
+        <a href="stories/site-1/index.html">Sites</a>
         <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
       </nav>
     </header>
@@ -47,19 +48,19 @@
     </section>
 
     <section aria-labelledby="stories-title" class="stories-section">
-      <h2 id="stories-title">Explore Sites</h2>
+      <h2 id="stories-title">Explore The Sites</h2>
       <!-- Four main cards -->
       <div id="main-cards" class="grid" aria-live="polite">
-        <!-- Each card loads story-*. The data-* attributes help card-local search -->
-        <article class="card" data-story="story-1" role="article" tabindex="0">
-          <h3>NextChapterInk</h3>
+        <!-- Each card loads site-*. The data-* attributes help card-local search -->
+        <article class="card" data-story="site-1" role="article" tabindex="0">
+          <h3><a class="btn" href="https://jperryz.github.io/NextChapterInk/" 
+            aria-label="Open Site 1">NextChapterInk</a></h3>
           <p>A Site for Stories and Ideas to Come Alive</p>
           <div class="card-footer">
-            <a class="btn" href="https://jperryz.github.io/NextChapterInk/" aria-label="Open Story 1">Open</a>
           </div>
         </article>
 
-        <article class="card" data-story="story-2" role="article" tabindex="0">
+        <article class="card" data-story="site-2" role="article" tabindex="0">
           <h3>Production Assistance Landing Page</h3>
           <p>A simple landing page with basic information about production assistance services</p>
           <div class="card-footer card-footer-auto-margin">
@@ -67,7 +68,7 @@
           </div>
         </article>
 
-        <article class="card" data-story="story-3" role="article" tabindex="0">
+        <article class="card" data-story="site-3" role="article" tabindex="0">
           <h3>Erica's Learning Center</h3>
           <p>A simple landing page with basic information about Erica's Learning Center</p>
           <div class="card-footer">
@@ -75,7 +76,7 @@
           </div>
         </article>
 
-        <article class="card" data-story="story-4" role="article" tabindex="0">
+        <article class="card" data-story="site-4" role="article" tabindex="0">
           <h3>Willow & Pine Events</h3>
           <p>A simple landing page with basic information about -fictional- Willow & Pine Events</p>
           <div class="card-footer">
