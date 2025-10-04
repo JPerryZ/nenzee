@@ -1,125 +1,113 @@
+<!-- index.html — Landing page (root) -->
+
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Willow & Pine Events</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="style.css"/> 
+  <title>NextChapterInk.nenzee.com</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-9429571484429929">
+  <link rel="stylesheet" href="assets\css\main.css">
+  <link rel="main.js" href="assets\js\main.js">
+  <link rel="search.js" href="assets\js\search.js">
+  <link rel="comment.js" href="assets\js\comment.js">
+          <!--  main.js handles nav behaviors and fetches searchIndex.json -->
 </head>
+
 <body>
-  <header class="site-header">
-    <a class="logo" href="#"><img src="assets\willowpineheropic.png" alt="Willow & Pine Events logo" height="36"/></a>
-    <nav id="siteNav" class="site-nav" aria-label="Main">
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
+  <header role="banner">
+  <header class="container site-nav" role="banner">
+      
+      <div class="logo" aria-hidden="true">
+
+        <a class="search-bar" role="search" aria-label="Site search">
+          <input id="site-search" class="search-input" type="search" 
+            placeholder="Search the entire site..." aria-label="Search site" />
+          <button id="search-btn" class="btn" height="40px"; aria-label="Search">Search</button></a>
+
+        <a class="skip-link" href="#main"><img src="images\NextChapLogo.png" 
+          alt="Main Page" height="70" width="70"/></a>      
+        </a>  
+  
+  </div>  
+  </header>
+
+  <header>
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
     </nav>
   </header>
 
-  <main>
-    <section class="hero" role="region" aria-label="Hero">
-      <div class="hero__overlay"></div>
-      <div class="hero__content">
-        <h1>Willow & Pine</h1>
-        <h2>Crafting unforgettable moments beneath the trees and twinkling lights.</h2>
-        <p>Willow & Pine brings your dream event to life with heart, harmony, and a touch of magic.</p>
-        <a class="btn btn--primary" href="#contact">Plan Your Event</a>
-      </div>
+  <main id="main" class="container" role="main">
+
+    <!-- Hero section with welcome message -->
+
+    <section aria-labelledby ="hero-title">
+      <img src="images\NextChapterHero.png" height="800px" width="800px" alt="Main Page"/> </h1>
+      <p class="hero-subheading">Stories at Your Fingertips</p>
     </section>
 
-    <section id="services" class="section">
-      <div class="container">
-        <h2 class="section__title">Featured Services</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Micro-Weddings</h3>
-            <p>Intimate ceremonies with thoughtful details for your closest circle.</p>
-          </article>
-          <article class="card">
-            <h3>Styled Picnics</h3>
-            <p>Curated outdoor setups for proposals, birthdays, and just-because moments.</p>
-          </article>
-          <article class="card">
-            <h3>Corporate Retreats</h3>
-            <p>Nature-grounded experiences that build alignment and team spirit.</p>
-          </article>
-          <article class="card">
-            <h3>Event Rentals</h3>
-            <p>Tents, tables, and decor to complete your vision.</p>
-          </article>
-        </div>
+    <section aria-labelledby="stories-title" class="stories-section">
+      <h2 id="stories-title">Explore Further</h2>
 
-        <details class="services__all">
-          <summary>Full Services List</summary>
-          <ul class="list">
-            <li>Event Planning & Coordination</li>
-            <li>Venue Scouting</li>
-            <li>Floral Design</li>
-            <li>Custom Decor</li>
-            <li>Vendor Management</li>
-            <li>On-Site Setup & Breakdown</li>
-            <li>Rentals (Tents, Tables, Chairs, Linens, Lighting)</li>
-          </ul>
-        </details>
-      </div>
-    </section>
+      <!-- Four main cards -->
+      
+      <div id="main-cards" class="grid" aria-live="polite">
+        
+        <!-- Each card loads story-*. The data-* attributes help card-local search -->
 
-    <section id="about" class="section section--alt">
-      <div class="container">
-        <h2 class="section__title">About Us</h2>
-        <p>Based in Asheville, NC, we curate boho-chic events with minimalist elegance.</p>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="section__title">Get In Touch</h2>
-        <!-- Netlify Forms enabled -->
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form" id="contactForm">
-          <input type="hidden" name="form-name" value="contact"/>
-          <p class="hidden">
-            <label>Contact Us: <input name="bot-field"/></label>
-          </p>
-
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your Name" required/>
+        <article class="card" data-story="story-1" role="article" tabindex="0">
+          <h3>Mudcreek</h3>
+          <p>The Knights of Mudcreek</p>
+          <div class="card-footer">
+            <a class="btn" href="stories\Mudcreek\mudcreek.html" aria-label="Open Story 1">Open story</a>
+            <a class="btn secondary card-chapters-link" href="stories/Mudcreek/index.html#chapters">Chapters</a>
           </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required/>
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us about your event..." required></textarea>
-          </div>
+        </article>
 
-          <button type="submit" class="btn btn--primary">Send Message</button>
-          <p id="formMsg" role="status" aria-live="polite"></p>
-        </form>
+        <article class="card" data-story="story-2" role="article" tabindex="0">
+          <h3>**Coming Soon*</h3>
+          <p>**Keep on the lookout**</p>
+          <div class="card-footer card-footer-auto-margin">
+            <a class="btn" href="stories/story-2/index.html">Open story</a>
+          </div>
+        </article>
+
+        <article class="card" data-story="story-3" role="article" tabindex="0">
+          <h3>**Coming Soon*</h3>
+          <p>**Keep on the lookout**</p>
+          <div class="card-footer">
+            <a class="btn" href="stories/story-3/index.html">Open story</a>
+          </div>
+        </article>
+
+        <article class="card" data-story="story-4" role="article" tabindex="0">
+          <h3>**Coming Soon*</h3>
+          <p>**Keep on the lookout**</p>
+          <div class="card-footer">
+            <a class="btn" href="stories/story-4/index.html">Open story</a>
+          </div>
+        </article>
       </div>
     </section>
+
+    <section id="search-results" aria-live="polite"></section>
+
+    <footer class="site-footer">
+      <div>© NextChapterInk — Nenzee.com : 2025 </div>
+    </footer>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer__grid">
-      <div>
-        <strong>Willow & Pine Events</strong><br/>
-        1423 Fern Hollow Rd, Asheville, NC 28801<br/>
-        <a href="mailto:hello@willowpineevents.com">hello@willowpineevents.com</a> · (555) 867-5309
-      </div>
-      <div class="social">
-        <a href="#" aria-label="Instagram">@willowpineevents</a>
-        <a href="#" aria-label="Pinterest">@willowpineevents</a>
-        <a href="#" aria-label="Facebook">Willow & Pine Events</a>
-      </div>
-    </div>
-  </footer>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9429571484429929"
+     crossorigin="anonymous"></script>
 
-  <script src="./script.js" defer></script>
-</body>
+  <!-- main.js sets up search button to invoke search.js functionality -->
+
+  </body>
 </html>
-
-
