@@ -9,6 +9,7 @@
   <link rel="main.js" href="assets\js\main.js">
   <link rel="search.js" href="assets\js\search.js">
   <link rel="comment.js" href="assets\js\comment.js">
+  <link rel="contact-form" href="assets\js\contact-form.xlsx">
 
   <!-- Inline note: main.js handles nav behaviors and fetches searchIndex.json -->
 
@@ -19,13 +20,13 @@
       
       <div class="logo" aria-hidden="true">
 
-        <a class="search-bar" role="search" aria-label="Site search">
+  <!--      <a class="search-bar" role="search" aria-label="Site search">
           <input id="site-search" class="search-input" type="search" 
             placeholder="Search the entire site..." aria-label="Search site" />
           <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
 
           <button id="search-btn-top" class="btn" height="40px"; aria-label="Search">Search</button></a>
-
+  -->
         <a class="skip-link" href="index.html"><img src="images\NNZLogo.png" 
           alt="Main Page" height="40" width="40"/></a>      
       
@@ -40,23 +41,66 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <!--  <a href="stories">Sites</a>--> 
-      <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
+      <a href="admin.html" aria-hidden="true">Admin</a> 
     </nav>
   </header>
 
   <main id="contact-main" class="container">
     <h1>Contact</h1>
-    <p>**BOLD: Replace with how you'd like visitors to reach you.**</p>
+    <p></p>
 
-    <form id="contact-form" onsubmit="return false;" aria-label="Contact form">
+<form id="CustomerOrdersDB" class="comment-list" role="form" aria-label="comment-post">
+  <input type="hidden" name="clearFormsOnSubmit" value="true" />
+  <input type="hidden" name="class" value="comment-list" />
+  <input type="hidden" name="role" value="form" />
+  <input type="hidden" name="method" value="post" />
+  <input type="hidden" name="aria-label" value="comment-post" />
+</form>
+
       <label for="c-name">Name</label><br />
       <input id="c-name" required /><br />
+
       <label for="c-email">Email</label><br />
       <input id="c-email" type="email" required /><br />
+
       <label for="c-message">Message</label><br />
       <textarea id="c-message" rows="5" required></textarea><br />
-      <p class="contact-demo-note">This demo currently does not submit to a database. When ready, you can wire this to server-side SQL endpoints or Netlify Functions. See README for suggested services.</p>
-      <button id="c-submit" class="btn" type="button">Send (Dummy)</button>
+
+      <p class='CustomerOrdersDB'></p>
+      <button id="c-submit" class="btn" type="submit">Send</button>
+
+      <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getNetlifyCollection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "api.netlify.com/api/v1/badges/7b5270d9-4b52-4ea0-8224-73fd586f343a",
+    authDomain: "nenzee.netlify.com",
+    projectId: "7b5270d9-4b52-4ea0-8224-73fd586f343a",
+  };
+
+  const app = initializeApp(getNetlifyCollection);
+  const db = getNetlifyCollection(app);
+
+        document.getElementById('c-submit').onclick = function(e) {
+          e.preventDefault();
+          // Collect form data
+          const name = document.getElementById('c-name').value;
+          const email = document.getElementById('c-email').value;
+          const message = document.getElementById('c-message').value;
+
+          // Prepare data as CSV row (for Excel)
+          const row = `"${name}","${email}","${message}"\n`;
+
+          // Download as .csv (since JS can't write to .xlsx directly)
+          const blob = new Blob([row], { type: 'text/csv' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'CustomerOrdersDB';
+          a.click();
+        };
+      </script>
     </form>
 
   <footer class="site-footer">

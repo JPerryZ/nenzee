@@ -12,12 +12,12 @@
 
   // Load comments for this page
   const loadComments = () => {
-    const raw = localStorage.getItem('nenzee_comments') || '[]';
+    const raw = localStorage.getItem('CustomerOrdersDB') || '[]';
     try{ return JSON.parse(raw); } catch(e){ return []; }
   };
 
   const saveComments = (arr) => {
-    localStorage.setItem('nenzee_comments', JSON.stringify(arr));
+    localStorage.setItem('CustomerOrdersDB', JSON.stringify(arr));
   };
 
   const renderComments = () => {
@@ -58,8 +58,7 @@
   setTimeout(renderComments,300);
 })();
 ________________________________________
-searchIndex.json (example — fill with real data)
-Place at site root: searchIndex.json
+index.json ()
 [
   {
     "id":"story-1",
@@ -77,5 +76,4 @@ Place at site root: searchIndex.json
     "url":"stories/story-1/chapter-1.html",
     "content":"**BOLD: Full chapter content for indexing (or a summary)**"
   }
-  /* Add more items for each chapter and page. Netlify/GitHub will serve this statically. */
 ]

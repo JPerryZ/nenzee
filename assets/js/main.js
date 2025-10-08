@@ -41,4 +41,26 @@
       }
     }
   });
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const formData = {
+      name: this.name.value,
+      email: this.email.value,
+      message: this.message.value
+    };
+  
+    const response = await fetch('https://your-azure-function-url/api/submit-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+  
+    if (response.ok) {
+      alert('Message sent!');
+    } else {
+      alert('Error sending message.');
+    }
+  });
+  
 })();

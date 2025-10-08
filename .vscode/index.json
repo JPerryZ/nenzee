@@ -1,0 +1,23 @@
+{
+    "name": "nenzee",
+    "description": "Project index for the nenzee workspace",
+    "version": "1.0.0",
+    "files": [
+        {
+            "path": "src/",
+            "description": "Source code directory"
+        },
+        {
+            "path": "README.md",
+            "description": "Project documentation"
+        },
+        {
+            "path": "package.json",
+            "description": "Node.js project configuration"
+        },
+        {
+            "path": ".vscode/",
+            "description": "VSCode workspace settings"
+        }
+    ]
+}
