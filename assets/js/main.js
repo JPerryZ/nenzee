@@ -1,66 +1,64 @@
-// assets/js/main.js
-// Handles basic nav behaviors and wiring search input clicks to search.js search function.
-// Follow your code style: parentheses around params, minimal spaces inside objects.
 
 (() => {
   // progressive enhancement: handle main search button
   const siteSearchBtn = document.getElementById('search-btn');
-  if(siteSearchBtn){
+  if (siteSearchBtn) {
     siteSearchBtn.addEventListener('click', () => {
-      const q = (document.getElementById('site-search')||{}).value || '';
-      if(!q) return;
-      // navigate to results handled by search.js (it listens for 'nenzee:search' event)
-      window.dispatchEvent(new CustomEvent('nenzee:search',{detail:{query:q,scope:'all'}}));
+      const q = (document.getElementById('site-search') || {}).value || '';
+      if (!q) return;
+      window.dispatchEvent(new CustomEvent('nenzee:search', { detail: { query: q, scope: 'all' } }));
     });
   }
 
   // wire story-level searches (if present)
-  const storyBtn=document.getElementById('story-search-btn');
-  if(storyBtn){
+  const storyBtn = document.getElementById('story-search-btn');
+  if (storyBtn) {
     storyBtn.addEventListener('click', () => {
-      const q=(document.getElementById('story-search')||{}).value||'';
-      window.dispatchEvent(new CustomEvent('nenzee:search',{detail:{query:q,scope:'story'}}));
+      const q = (document.getElementById('story-search') || {}).value || '';
+      window.dispatchEvent(new CustomEvent('nenzee:search', { detail: { query: q, scope: 'story' } }));
     });
   }
 
-  const chapterBtn=document.getElementById('chapter-search-btn');
-  if(chapterBtn){
+  const chapterBtn = document.getElementById('chapter-search-btn');
+  if (chapterBtn) {
     chapterBtn.addEventListener('click', () => {
-      const q=(document.getElementById('chapter-search')||{}).value||'';
-      window.dispatchEvent(new CustomEvent('nenzee:search',{detail:{query:q,scope:'chapter'}}));
+      const q = (document.getElementById('chapter-search') || {}).value || '';
+      window.dispatchEvent(new CustomEvent('nenzee:search', { detail: { query: q, scope: 'chapter' } }));
     });
   }
 
-  // generic keyboard accessibility: press Enter on focused .card goes to first link
+  // keyboard accessibility: press Enter on focused .card goes to first link
   document.addEventListener('keydown', (ev) => {
-    if(ev.key === 'Enter'){
+    if (ev.key === 'Enter') {
       const active = document.activeElement;
-      if(active && active.classList && active.classList.contains('card')){
+      if (active && active.classList && active.classList.contains('card')) {
         const link = active.querySelector('a');
-        if(link) link.focus();
+        if (link) link.focus();
       }
     }
   });
 
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const formData = {
-      name: this.name.value,
-      email: this.email.value,
-      message: this.message.value
-    };
-  
-    const response = await fetch('https://your-azure-function-url/api/submit-form', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+  // Azure Function form submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const name = contactForm.querySelector('#c-name')?.value || '';
+      const email = contactForm.querySelector('#c-email')?.value || '';
+      const message = contactForm.querySelector('#c-message')?.value || '';
+
+      const response = await fetch('https://your-function-app.azurewebsites.net/api/HttpFormSubmit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      if (response.ok) {
+        alert('Message sent!');
+        contactForm.reset(); // ✅ Clears the form
+      } else {
+        alert('Error sending message.');
+      }
     });
-  
-    if (response.ok) {
-      alert('Message sent!');
-    } else {
-      alert('Error sending message.');
-    }
-  });
-  
+  }
 })();

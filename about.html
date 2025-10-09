@@ -4,13 +4,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="google-adsense-account" content="ca-pub-9429571484429929">
     <title>About - Nenzee.com</title>
     <link rel="stylesheet" href="assets\css\main.css">
     <link rel="main.js" href="assets\js\main.js">
     <link rel="search.js" href="assets\js\search.js">
     <link rel="comment.js" href="assets\js\comment.js">
-  
+    <link rel="contact-form" href="assets\SQL.sql">
+    
     <!-- Inline note: main.js handles nav behaviors and fetches searchIndex.json -->
   
   </head>
@@ -20,14 +20,14 @@
         
         <div class="logo" aria-hidden="true">
   
-          <a class="search-bar" role="search" aria-label="Site search">
+ <!--        <a class="search-bar" role="search" aria-label="Site search">
             <input id="site-search" class="search-input" type="search" 
               placeholder="Search the entire site..." aria-label="Search site" />
             <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
   
             <button id="search-btn-top" class="btn" height="40px"; 
             aria-label="Search">Search</button></a>
-
+ -->
             <a class="skip-link" href="index.html"><img src="images\NNZLogo.png" 
               alt="Main Page" height="40" width="40"/></a>      
     
@@ -40,19 +40,31 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <!--  <a href="stories">Sites</a>--> 
-        <a href="admin.html" aria-hidden="true">Admin</a>  <!-- admin link is intentionally visible for demo -->     
       </nav>
     </header>
 
 
     <main id="about-main" class="container">
     <h1>About This Website</h1>
-    <p>Nenzee.com is a domain that I, Jennifer Perry, own and operate 
-      in order to showcase my web design and web programming projects.</p>
-  </main>
+    <p>Nenzee.com is a domain that I own and operate 
+     for the purpose of showcasing my web design and programming projects.</p>
+
+
+  <footer class="site-footer">
+    <div>
+    <a class="skip-link" href="index.html">
+      © Nenzee — 2025</a>
+    </div>
+    <div> 
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="admin.html" aria-hidden="true">Admin</a>
+  </div> 
+  </footer>
+</main>
 
   <script src="assets\js\main.js"></script>
   <script src="assets\js\search.js"></script>
   <script src="assets\js\comment.js"></script>
 </body>
 </html>
+

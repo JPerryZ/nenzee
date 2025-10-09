@@ -5,108 +5,125 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Admin — Nenzee.com</title>
-    <link rel="stylesheet" href="assets\css\main.css">
-    <link rel="main.js" href="assets\js\main.js">
-    <link rel="search.js" href="assets\js\search.js">
-    <link rel="comment.js" href="assets\js\comment.js">
-  
+    <link rel="stylesheet" href="assets/css/main.css" />
+
     <!-- Inline note: main.js handles nav behaviors and fetches searchIndex.json -->
-  
   </head>
   <body>
-    <header role="banner">
     <header class="container site-nav" role="banner">
-        
-        <div class="logo" aria-hidden="true">
-  
-          <a class="search-bar" role="search" aria-label="Site search">
-            <input id="site-search" class="search-input" type="search" 
-              placeholder="Search the entire site..." aria-label="Search site" />
-            <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
-  
-            <button id="search-btn-top" class="btn" height="40px"; aria-label="Search">Search</button></a>
-
-            <a class="skip-link" href="index.html"><img src="images\NNZLogo.png" 
-              alt="Main Page" height="40" width="40"/></a>      
-            
-        </a>  
-    
-    </div>  
+      <div class="logo" aria-hidden="true">
+        <a class="skip-link" href="index.html">
+          <img src="images/NNZLogo.png" alt="Main Page" height="40" width="40" />
+        </a>
+      </div>
     </header>
-  
-    <header>
-      <nav class="nav-links" role="navigation" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <!--  <a href="stories">Sites</a>--> 
-        <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
-      </nav>
-    </header>
-  
-  <body>
-  <div class="container">
-    <h1>Admin — Moderate Pending Comments</h1>
-    <p>Enter the admin passphrase to view pending comments. (Demo only — do not use on public without server auth.)</p>
 
-    <label for="admin-pass">Admin passphrase</label><br />
-    <input id="admin-pass" type="password" /><button id="admin-enter" class="btn">Enter</button>
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <!-- <a href="stories">Sites</a> -->
+    </nav>
 
-    <div id="admin-area">
-      <h2>Pending comments</h2>
-      <div id="pending-list"></div>
-    </div>
+    <main class="container">
+      <h1>Admin — Moderate Pending Comments</h1>
+      <p>Enter the admin passphrase to view pending comments. (Demo only — do not use on public without server auth.)</p>
 
-    <p class="admin-notes">Notes: Comments are stored in localStorage under key <code>nenzee_comments</code>. When you integrate a real DB (SQL), replace the comments.js functions to POST and GET to your backend. See README for recommended integrations.</p>
-  </div>
+      <label for="admin-pass">Admin passphrase</label><br />
+      <input id="admin-pass" type="password" />
+      <button id="admin-enter" class="btn">Enter</button>
 
-  <script>
-    // simple admin demo — passphrase is "nenzee-admin" by default
-    const passEl=document.getElementById('admin-pass');
-    const btn=document.getElementById('admin-enter');
-    const area=document.getElementById('admin-area');
-    const list=document.getElementById('pending-list');
+      <div id="admin-area">
+        <h2>Pending comments</h2>
+        <div id="pending-list"></div>
+      </div>
 
-    btn.addEventListener('click', () => {
-      if(passEl.value==='nenzee-admin'){ area.style.display='block'; loadPending(); }
-      else{ alert('Incorrect passphrase'); }
-    });
+      <p class="admin-notes">
+        Notes: Comments are stored in localStorage under key <code>nenzee_comments</code>.
+        When you integrate a real DB (SQL), replace the comments.js functions to POST and GET to your backend.
+        See README for recommended integrations.
+      </p>
+    </main>
 
-    function loadPending(){
-      const raw=localStorage.getItem('nenzee_comments');
-      const arr=raw?JSON.parse(raw):[];
-      list.innerHTML='';
-      const pending=arr.filter((c)=>c.status==='pending');
-      if(pending.length===0){ list.innerHTML='<div>No pending comments</div>'; return; }
-      pending.forEach((c,idx) => {
-        const d=document.createElement('div');
-        d.className='card';
-        d.innerHTML=`<div style="display:flex;justify-content:space-between"><div><strong>${c.name}</strong> <div class="meta">${c.when} • on <em>${c.page}</em></div></div><div><button class="btn" data-idx="${idx}" data-action="approve">Approve</button><button class="btn secondary" data-idx="${idx}" data-action="reject" style="margin-left:8px">Reject</button></div></div><p style="margin-top:8px">${c.body}</p>`;
-        list.appendChild(d);
+    <footer class="site-footer">
+      <div>
+        <a class="skip-link" href="index.html">© Nenzee — 2025</a>
+      </div>
+      <div>
+        <nav class="nav-links" role="navigation" aria-label="Main navigation">
+          <a href="admin.html" aria-hidden="true">Admin</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/comment.js"></script>
+
+    <script>
+      const passEl = document.getElementById('admin-pass');
+      const btn = document.getElementById('admin-enter');
+      const area = document.getElementById('admin-area');
+      const list = document.getElementById('pending-list');
+
+      btn.addEventListener('click', () => {
+        if (passEl.value === 'nenzee-admin') {
+          area.style.display = 'block';
+          loadPending();
+        } else {
+          alert('Incorrect passphrase');
+        }
       });
-      list.querySelectorAll('button').forEach((b) => {
-        b.addEventListener('click', (ev) => {
-          const i=Number(ev.currentTarget.dataset.idx);
-          const action=ev.currentTarget.dataset.action;
-          handleAction(i, action);
+
+      function loadPending() {
+        const raw = localStorage.getItem('nenzee_comments');
+        const arr = raw ? JSON.parse(raw) : [];
+        list.innerHTML = '';
+        const pending = arr.filter((c) => c.status === 'pending');
+        if (pending.length === 0) {
+          list.innerHTML = '<div>No pending comments</div>';
+          return;
+        }
+        pending.forEach((c, idx) => {
+          const d = document.createElement('div');
+          d.className = 'card';
+          d.innerHTML = `
+            <div style="display:flex;justify-content:space-between">
+              <div>
+                <strong>${c.name}</strong>
+                <div class="meta">${c.when} • on <em>${c.page}</em></div>
+              </div>
+              <div>
+                <button class="btn" data-idx="${idx}" data-action="approve">Approve</button>
+                <button class="btn secondary" data-idx="${idx}" data-action="reject" style="margin-left:8px">Reject</button>
+              </div>
+            </div>
+            <p style="margin-top:8px">${c.body}</p>
+          `;
+          list.appendChild(d);
         });
-      });
-    }
+        list.querySelectorAll('button').forEach((b) => {
+          b.addEventListener('click', (ev) => {
+            const i = Number(ev.currentTarget.dataset.idx);
+            const action = ev.currentTarget.dataset.action;
+            handleAction(i, action);
+          });
+        });
+      }
 
-    function handleAction(index, action){
-      const raw=localStorage.getItem('nenzee_comments');
-      const arr=raw?JSON.parse(raw):[];
-      // find the actual index of this pending in storage by matching pending sorted order
-      const pending=arr.filter((c)=>c.status==='pending');
-      const item=pending[index];
-      if(!item) return;
-      const globalIndex=arr.findIndex((c)=>c.id===item.id);
-      if(action==='approve') arr[globalIndex].status='approved';
-      if(action==='reject') arr.splice(globalIndex,1);
-      localStorage.setItem('nenzee_comments', JSON.stringify(arr));
-      loadPending();
-      alert('Action completed.');
-    }
-  </script>
-</body>
+      function handleAction(index, action) {
+        const raw = localStorage.getItem('nenzee_comments');
+        const arr = raw ? JSON.parse(raw) : [];
+        const pending = arr.filter((c) => c.status === 'pending');
+        const item = pending[index];
+        if (!item) return;
+        const globalIndex = arr.findIndex((c) => c.id === item.id);
+        if (action === 'approve') arr[globalIndex].status = 'approved';
+        if (action === 'reject') arr.splice(globalIndex, 1);
+        localStorage.setItem('nenzee_comments', JSON.stringify(arr));
+        loadPending();
+        alert('Action completed.');
+      }
+    </script>
+  </body>
 </html>

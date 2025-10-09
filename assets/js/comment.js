@@ -1,15 +1,29 @@
-// assets/js/comments.js
-// Implements localStorage-based comment posting as "pending", minimal moderation.
-// When you integrate SQL, replace storage functions with fetch() to your server.
-// Style preference respected: (param) => and tight object braces.
+import { CosmosClient } from "@azure/cosmos";
 
-(() => {
+(async () => {
   // Helper: unique id
   const uid = () => Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8);
 
   // Get page id for storage: use pathname
-  const pageId = location.pathname;
 
+  const client = new CosmosClient({
+    endpoint: process.env.COSMOS_ENDPOINT,
+    key: process.env.COSMOS_KEY
+  });
+  
+  const database = client.database("CustomerCommentsDB");
+  const container = database.container("Comments");
+  
+  // Add a comment
+  await container.items.create({
+    id: "unique-id",
+    name: "Jennifer",
+    body: "This is a comment",
+    page: "/contact",
+    status: "pending",
+    when: new Date().toISOString()
+  });
+  
   // Load comments for this page
   const loadComments = () => {
     const raw = localStorage.getItem('CustomerOrdersDB') || '[]';
@@ -30,17 +44,20 @@
     listEl.innerHTML = approved.map((c)=>`<div class="comment"><div class="meta"><strong>${c.name}</strong> • ${c.when}</div><p>${c.body}</p></div>`).join('');
   };
 
-  const postComment = (name, body) => {
+  function postComment(name, email, body) {
     const arr = loadComments();
-    const data = {id:uid(), page:pageId, name, body, when:new Date().toLocaleString(), status:'pending'};
+    const data = {
+      id: uid(), page: pageId, name, body,
+      when: new Date().toLocaleString(), status: 'pending'
+    };
     arr.push(data);
     saveComments(arr);
     alert('Your comment has been posted and is pending approval.');
     renderComments(); // shows approved only, so pending not shown
-  };
+  }
 
   // wire up form handler
-  const postBtn = document.getElementById('comment-post');
+  const postBtn = document.getElementById('comment-form');
   if(postBtn){
     postBtn.addEventListener('click', () => {
       const name=(document.getElementById('comment-name')||{}).value||'Anonymous';
@@ -77,3 +94,8 @@ index.json ()
     "content":"**BOLD: Full chapter content for indexing (or a summary)**"
   }
 ]
+
+
+
+
+
