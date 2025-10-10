@@ -11,7 +11,7 @@ import { CosmosClient } from "@azure/cosmos";
     key: process.env.COSMOS_KEY
   });
   
-  const database = client.database("CustomerCommentsDB");
+  const database = client.database("Nenzee.com");
   const container = database.container("Comments");
   
   // Add a comment
@@ -26,12 +26,12 @@ import { CosmosClient } from "@azure/cosmos";
   
   // Load comments for this page
   const loadComments = () => {
-    const raw = localStorage.getItem('CustomerOrdersDB') || '[]';
+    const raw = localStorage.getItem('Nenzee.com') || '[]';
     try{ return JSON.parse(raw); } catch(e){ return []; }
   };
 
   const saveComments = (arr) => {
-    localStorage.setItem('CustomerOrdersDB', JSON.stringify(arr));
+    localStorage.setItem('Nenzee.com', JSON.stringify(arr));
   };
 
   const renderComments = () => {
@@ -81,16 +81,16 @@ index.json ()
     "id":"story-1",
     "title":"**BOLD: Story 1 Title**",
     "snippet":"**BOLD: Short story 1 snippet**",
-    "page":"stories/story-1/index.html",
-    "url":"stories/story-1/index.html",
+    "page":"sites/story-1/index.html",
+    "url":"sites/story-1/index.html",
     "content":"**BOLD: Longer searchable content for story 1**"
   },
   {
     "id":"story-1-ch1",
     "title":"Chapter 1 — **BOLD: Chapter Title**",
     "snippet":"**BOLD: chapter 1 snippet**",
-    "page":"stories/story-1/chapter-1.html",
-    "url":"stories/story-1/chapter-1.html",
+    "page":"sites/story-1/chapter-1.html",
+    "url":"sites/story-1/chapter-1.html",
     "content":"**BOLD: Full chapter content for indexing (or a summary)**"
   }
 ]

@@ -1,21 +1,22 @@
-
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>Contact — Nenzee.com</title>
-  <link rel="stylesheet" href="assets/css\main.css">
-  <link rel="main.js" href="assets/js\main.js">
-  <link rel="search.js" href="assets/js\search.js">
-  <link rel="comment.js" href="assets/js\comment.js">
-  <link rel="contact-form" href="assets/js\contact-form.xlsx">
+
+  <link rel="stylesheet" href="assets\css\main.css">
+  <link rel="main.js" href="assets\js\main.js">
+  <link rel="search.js" href="assets\js\search.js">
+  <link rel="comment.js" href="assets\js\comment.js">
+  <link rel="contact-form" href="assets\SQL.sql">
+
+
 </head>
-
 <body>
-
-  <header>
+  <header role="banner">
+  <header class="container site-nav" role="banner">
       
       <div class="logo" aria-hidden="true">
 
@@ -26,13 +27,12 @@
 
           <button id="search-btn-top" class="btn" height="40px"; aria-label="Search">Search</button></a>
   -->
-        <a class="skip-link" href="index.html"><img src="images/NNZLogo.png" 
+        <a class="skip-link" href="index.html"><img src="images\NNZLogo.png" 
           alt="Main Page" height="40" width="40"/></a>      
       
       </a>  
   
-  </div>
-
+  </div>  
   </header>
 
   <header>
@@ -40,7 +40,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <!--  <a href="stories">Sites</a>--> 
+      <!--  <a href="sites">Sites</a>--> 
     </nav>
   </header>
 
@@ -48,30 +48,26 @@
     <h1>Contact</h1>
     <p></p>
 
-    <form id="CustomerOrdersDB" class="comment-form" role="form" 
-    aria-label="comment-post">
-      <h3>Contact Us</h3>
-    
-      <label for="comment-name">Name:</label>
-      <input type="text" id="comment-name" name="name" placeholder="Your name" />
+<form id="Nenzee.com" class="comment-list" role="form" aria-label="comment-post">
+  <input type="hidden" name="clearFormsOnSubmit" value="true" />
+  <input type="hidden" name="class" value="comment-list" />
+  <input type="hidden" name="role" value="form" />
+  <input type="hidden" name="method" value="post" />
+  <input type="hidden" name="aria-label" value="comment-post" />
+</form>
 
-      <label for="comment-email">Email:</label>
-      <input type="text" id="comment-email" name="email" placeholder="Your email" />
+      <label for="c-name">Name</label><br />
+      <input id="c-name" required /><br />
 
-      <label for="comment-body">Comment:</label>
-      <textarea id="comment-body" name="body" placeholder="Your comment"></textarea>
-    
- <!--     <button type="button" id="comment-post">Post Comment</button> -->
-    </form>
-    
-    <!-- Where comments will be displayed -->
-    <!-- <div id="comment-list" class="comment-list"></div>-->
-      
+      <label for="c-email">Email</label><br />
+      <input id="c-email" type="email" required /><br />
 
-      <p class='CustomerOrdersDB'></p>
+      <label for="c-message">Message</label><br />
+      <textarea id="c-message" rows="5" required></textarea><br />
+
+      <p class='Nenzee.com'></p>
       <button id="c-submit" class="btn" type="submit">Send</button>
 
-      
       <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
@@ -88,7 +84,6 @@ import { getNetlifyCollection, addDoc } from "https://www.gstatic.com/firebasejs
 
         document.getElementById('c-submit').onclick = function(e) {
           e.preventDefault();
-
           // Collect form data
           const name = document.getElementById('c-name').value;
           const email = document.getElementById('c-email').value;
@@ -101,10 +96,9 @@ import { getNetlifyCollection, addDoc } from "https://www.gstatic.com/firebasejs
           const blob = new Blob([row], { type: 'text/csv' });
           const a = document.createElement('a');
           a.href = URL.createObjectURL(blob);
-          a.download = 'CustomerOrdersDB';
+          a.download = 'Nenzee.com';
           a.click();
         };
-
       </script>
     </form>
 
@@ -113,12 +107,12 @@ import { getNetlifyCollection, addDoc } from "https://www.gstatic.com/firebasejs
       <a class="skip-link" href="index.html">
         © Nenzee — 2025</a>
       </div>
-      <div>
-        <nav class="nav-links" role="navigation" aria-label="Main navigation">
-          <a href="admin.html" aria-hidden="true">Admin</a> 
-  
-      </div>
+      <div> 
+      <nav class="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="admin.html" aria-hidden="true">Admin</a>
+    </div> 
     </footer>
+    
 </main>
 
   <script src="assets/js/main.js"></script>
