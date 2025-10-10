@@ -1,8 +1,14 @@
+import express from 'express';
+import sql from 'mssql';
+import cors from 'cors';
+
 const app = express();
 
 // Middleware
+
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
 // SQL Server configuration
 const config = {

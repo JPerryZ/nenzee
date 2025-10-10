@@ -1,4 +1,15 @@
 import { CosmosClient } from "@azure/cosmos";
+import express from 'express';
+import sql from 'mssql';
+import cors from 'cors';
+
+const app = express();
+
+// Middleware
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.json());
 
 (async () => {
   // Helper: unique id
@@ -44,7 +55,7 @@ import { CosmosClient } from "@azure/cosmos";
     listEl.innerHTML = approved.map((c)=>`<div class="comment"><div class="meta"><strong>${c.name}</strong> • ${c.when}</div><p>${c.body}</p></div>`).join('');
   };
 
-  function postComment(name, email, body) {
+  function postComment(name, email, comment, clientnum) {
     const arr = loadComments();
     const data = {
       id: uid(), page: pageId, name, body,
