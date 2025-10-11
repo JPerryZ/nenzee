@@ -20,10 +20,10 @@
   </header>
 
   <main class="container">
-    <h1>Admin — Moderate Pending Comments</h1>
-    <p>Enter the admin passphrase to view pending comments. (Demo only — local use.)</p>
+    <h1>Admin <br> (moderate pending comments, set preferences, etc...)</h1>
+    <p>Log In</p>
 
-    <label for="admin-pass">Admin passphrase</label><br>
+    <label for="admin-pass">User Id</label><br>
     <input id="admin-pass" type="password">
     <button id="admin-enter" class="btn">Enter</button>
 
@@ -31,11 +31,15 @@
       <h2>Pending comments</h2>
       <div id="pending-list"></div>
     </div>
-  </main>
 
-  <footer class="site-footer">
-    <div>© Nenzee — 2025</div>
-  </footer>
+    <footer class="site-footer" aria-label="Footer navigation">
+      <div1><a class="skip-link" href="index.html">© Nenzee — 2025</a>
+      </div1>
+       <div2><a class="skip-link" href="admin.html">Admin</a>
+       </div2>
+    </footer>
+    
+</main>
 
   <script>
     const passEl=document.getElementById('admin-pass');
