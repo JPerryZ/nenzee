@@ -1,53 +1,26 @@
-  <!-- index.html — Landing page (root) -->
 <!doctype html>
 <html lang="en">
-
 <head>
-  <title>Nenzee.com</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="google-adsense-account" content="ca-pub-9429571484429929">
-
   <title>Nenzee.com</title>
-
-  <link rel="stylesheet" href="assets\css\main.css">
-  <link rel="main.js" href="assets\js\main.js">
-  <link rel="search.js" href="assets\js\search.js">
-  <link rel="comment.js" href="assets\js\comment.js">
-  <link rel="contact-form" href="assets\SQL.sql">
-
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
-  <header role="banner">
-  <header class="container site-nav" role="banner"> 
-
-      <div class="logo" aria-hidden="true">
-
- <!--       <a class="search-bar" role="search" aria-label="Site search">
-    <input id="site-search" class="search-input" type="search" 
-            placeholder="Search the entire site..." aria-label="Search site" />
-
-         <button id="search-btn-top" class="btn" height="40px"; 
-          aria-label="Search">Search</button></a>
-  -->
-
-        <a class="skip-link" href="index.html"><img src="images\NNZLogo.png" 
-          alt="Main Page" height="40" width="40"/></a>      
-  
-  </div>  
+  <header class="container site-nav" role="banner">
+    <a class="skip-link" href="index.html">
+      <img src="images/NNZLogo.png" alt="Nenzee.com Home" height="40" width="40">
+    </a>
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-    <header>
-      <nav class="nav-links" role="navigation" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-     <!--  <a href="sites">Sites</a>--> 
-      </nav>
-    </header>
-
-  <main id="main" class="container" role="main">
+  <main class="container" role="main">
     <section aria-labelledby="hero-title">
       <h1 id="hero-title">Nenzee.com</h1>
       <p class="hero-subheading">Website Compilations</p>
@@ -55,67 +28,39 @@
 
     <section aria-labelledby="sites-title" class="sites-section">
       <h2 id="sites-title">Explore The Sites</h2>
-      <!-- main cards -->
-      
       <div id="main-cards" class="grid" aria-live="polite">
-        <!-- Each card loads site-*. The data-* attributes help card-local search -->
-        <article class="card" data-story="site-1" role="article" tabindex="0">
-          <h3><a class="btn" href="https://nextchapterink.nenzee.com/" 
-            aria-label="Open Site 1">NextChapterInk</a></h3>
+        <article class="card">
+          <h3><a class="btn" href="https://nextchapterink.nenzee.com/">NextChapterInk</a></h3>
           <p>A Site for Stories and Ideas to Come Alive</p>
-          <div class="card-footer">
-          </div>
         </article>
 
-        <article class="card" data-story="site-2" role="article" tabindex="0">
-          <h3>Production Assistance Landing Page</h3>
-          <p>A simple landing page with basic information about production assistance services</p>
-          <div class="card-footer card-footer-auto-margin">
-            <a class="btn" href="https://productionassistance.nenzee.com/">Open</a>
-          </div>
+        <article class="card">
+          <h3><a class="btn" href="https://productionassistance.nenzee.com/">Production Assistance</a></h3>
+          <p>Landing page for production assistance services.</p>
         </article>
 
-        <article class="card" data-story="site-3" role="article" tabindex="0">
-          <h3>Erica's Learning Center</h3>
-          <p>A simple landing page with basic information about Erica's Learning Center</p>
-          <div class="card-footer">
-            <a class="btn" href="https://jperryz.github.io/EricasLearningCenter/">Open</a>
-          </div>
+        <article class="card">
+          <h3><a class="btn" href="https://jperryz.github.io/EricasLearningCenter/">Erica’s Learning Center</a></h3>
+          <p>Informational site for Erica's Learning Center.</p>
         </article>
 
-        <article class="card" data-story="site-4" role="article" tabindex="0">
-          <h3>Willow & Pine Events</h3>
-          <p>A simple landing page with basic information about -fictional- Willow & Pine Events</p>
-          <div class="card-footer">
-            <a class="btn" href="https://jperryz.github.io/Willow-Pine-Events/">Open </a>
-          </div>
+        <article class="card">
+          <h3><a class="btn" href="https://jperryz.github.io/Willow-Pine-Events/">Willow & Pine Events</a></h3>
+          <p>Fictional landing page for event coordination services.</p>
         </article>
       </div>
     </section>
-
-    <section id="search-results" aria-live="polite"></section>
-
-    <footer class="site-footer">
-      <div>
-      <a class="skip-link" href="index.html">
-        © Nenzee — 2025</a>
-      </div>
-      <div> 
-      <nav class="nav-links" role="navigation" aria-label="Main navigation">
-        <a href="admin.html" aria-hidden="true">Admin</a>
-    </div> 
-
-
-    </footer>
-    
   </main>
+
+  <footer class="site-footer">
+    <div>© Nenzee — 2025</div>
+    <nav class="nav-links" role="navigation" aria-label="Footer navigation">
+      <a href="admin.html">Admin</a>
+    </nav>
+  </footer>
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/search.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9429571484429929"
-     crossorigin="anonymous"></script>
-
-  <!-- main.js sets up search button to invoke search.js functionality -->
-
-  </body>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9429571484429929" crossorigin="anonymous"></script>
+</body>
 </html>

@@ -3,122 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>Contact — Nenzee.com</title>
-
-  <link rel="stylesheet" href="assets\css\main.css">
-  <link rel="main.js" href="assets\js\main.js">
-  <link rel="search.js" href="assets\js\search.js">
-  <link rel="comment.js" href="assets\js\comment.js">
-  <link rel="[dbo].[CommentNenzeeMain]" href="[Nenzee.com]">
-
-
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
-  <header role="banner">
   <header class="container site-nav" role="banner">
-      
-      <div class="logo" aria-hidden="true">
-
-  <!--      <a class="search-bar" role="search" aria-label="Site search">
-          <input id="site-search" class="search-input" type="search" 
-            placeholder="Search the entire site..." aria-label="Search site" />
-          <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
-
-          <button id="search-btn-top" class="btn" height="40px"; aria-label="Search">Search</button></a>
-  -->
-        <a class="skip-link" href="index.html"><img src="images\NNZLogo.png" 
-          alt="Main Page" height="40" width="40"/></a>      
-      
-      </a>  
-  
-  </div>  
-  </header>
-
-  <header>
+    <a class="skip-link" href="index.html">
+      <img src="images/NNZLogo.png" alt="Nenzee.com Home" height="40" width="40">
+    </a>
     <nav class="nav-links" role="navigation" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <!--  <a href="sites">Sites</a>--> 
     </nav>
   </header>
 
-  <main id="contact-main" class="container">
+  <main class="container">
     <h1>Contact</h1>
-    <p></p>
+    <form id="contactForm" role="form" aria-label="contact-form">
+      <label for="comment-name">Name</label><br>
+      <input id="comment-name" name="name" required><br>
 
+      <label for="comment-email">Email</label><br>
+      <input id="comment-email" name="email" type="email" required><br>
 
-<form id="CommentForm" class="comment-list" role="form" 
-aria-label="comment-post">
-  <input type="hidden" name="clearFormsOnSubmit" value="true" />
-  <input type="hidden" name="class" value="comment-list" />
-  <input type="hidden" name="role" value="form" />
-  <input type="hidden" name="method" value="post" />
-  <input type="hidden" name="aria-label" value="comment-post" />
-</form>
+      <label for="comment-message">Message</label><br>
+      <textarea id="comment-message" name="comment" rows="5" required></textarea><br>
 
-      <label for="c-name">Name</label><br />
-      <input id="c-name" required /><br />
+     <!-- <label for="comment-clientnum">Client Number</label><br>
+      <input id="comment-clientnum" name="clientnum"><br>
+      -->
 
-      <label for="c-email">Email</label><br />
-      <input id="c-email" type="email" required /><br />
-
-      <label for="c-message">Message</label><br />
-      <textarea id="c-message" rows="5" required></textarea><br />
-
-      <p class='Nenzee.com'></p>
-      <button id="c-submit" class="btn" type="submit">Send</button>
-
-      <script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-import { getNetlifyCollection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "api.netlify.com/api/v1/badges/7b5270d9-4b52-4ea0-8224-73fd586f343a",
-    authDomain: "nenzee.netlify.com",
-    projectId: "7b5270d9-4b52-4ea0-8224-73fd586f343a",
-  };
-
-  const app = initializeApp(getNetlifyCollection);
-  const db = getNetlifyCollection(app);
-
-        document.getElementById('c-submit').onclick = function(e) {
-          e.preventDefault();
-          // Collect form data
-          const name = document.getElementById('c-name').value;
-          const email = document.getElementById('c-email').value;
-          const message = document.getElementById('c-message').value;
-
-          // Prepare data as CSV row (for Excel)
-          const row = `"${name}","${email}","${message}"\n`;
-
-          // Download as .csv (since JS can't write to .xlsx directly)
-          const blob = new Blob([row], { type: 'text/csv' });
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'Nenzee.com';
-          a.click();
-        };
-      </script>
+      <button id="comment-submit" class="btn" type="submit">Send</button>
     </form>
+  </main>
 
-    <footer class="site-footer">
-      <div>
-      <a class="skip-link" href="index.html">
-        © Nenzee — 2025</a>
-      </div>
-      <div> 
-      <nav class="nav-links" role="navigation" aria-label="Main navigation">
-        <a href="admin.html" aria-hidden="true">Admin</a>
-    </div> 
-    </footer>
-    
-</main>
+  <footer class="site-footer">
+    <div>© Nenzee — 2025</div>
+    <nav class="nav-links" role="navigation">
+      <a href="admin.html">Admin</a>
+    </nav>
+  </footer>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/comment.js"></script>
-  <script src="assets/js/search.js"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name=document.getElementById("comment-name").value;
+      const email=document.getElementById("comment-email").value;
+      const comment=document.getElementById("comment-message").value;
+     // const clientnum=document.getElementById("comment-clientnum").value;
+
+     try {
+        const response=await fetch("http://localhost:3001/api/comment", {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({name,email,comment,clientnum})
+        });
+        const result=await response.json();
+        alert(result.message || result.error);
+        document.getElementById("contactForm").reset();
+      } catch(err) {
+        alert("Error connecting to server.");
+        console.error(err);
+      }
+    });
+  </script>
+
+  <!-- Azure Cosmos/Firebase (commented for future use)
+  <script type="module">
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    // import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    // const firebaseConfig = { ... };
+    // const app = initializeApp(firebaseConfig);
+    // const db = getFirestore(app);
+  </script>
+  -->
 </body>
 </html>

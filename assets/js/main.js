@@ -1,64 +1,94 @@
-
+// public/main.js
 (() => {
-  // progressive enhancement: handle main search button
-  const siteSearchBtn = document.getElementById('search-btn');
-  if (siteSearchBtn) {
-    siteSearchBtn.addEventListener('click', () => {
-      const q = (document.getElementById('site-search') || {}).value || '';
+  // Site-wide search trigger
+  const triggerSearch = (btnId, inputId, scope) => {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const q = (document.getElementById(inputId)?.value || '').trim();
       if (!q) return;
-      window.dispatchEvent(new CustomEvent('nenzee:search', { detail: { query: q, scope: 'all' } }));
+      window.dispatchEvent(new CustomEvent('nenzee:search', {detail: {query: q, scope}}));
     });
-  }
+  };
+  triggerSearch('search-btn', 'site-search', 'all');
+  triggerSearch('story-search-btn', 'story-search', 'story');
+  triggerSearch('chapter-search-btn', 'chapter-search', 'chapter');
 
-  // wire story-level searches (if present)
-  const storyBtn = document.getElementById('story-search-btn');
-  if (storyBtn) {
-    storyBtn.addEventListener('click', () => {
-      const q = (document.getElementById('story-search') || {}).value || '';
-      window.dispatchEvent(new CustomEvent('nenzee:search', { detail: { query: q, scope: 'story' } }));
-    });
-  }
-
-  const chapterBtn = document.getElementById('chapter-search-btn');
-  if (chapterBtn) {
-    chapterBtn.addEventListener('click', () => {
-      const q = (document.getElementById('chapter-search') || {}).value || '';
-      window.dispatchEvent(new CustomEvent('nenzee:search', { detail: { query: q, scope: 'chapter' } }));
-    });
-  }
-
-  // keyboard accessibility: press Enter on focused .card goes to first link
-  document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Enter') {
-      const active = document.activeElement;
-      if (active && active.classList && active.classList.contains('card')) {
-        const link = active.querySelector('a');
-        if (link) link.focus();
-      }
+  // Enter key accessibility for .card focus
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.classList?.contains('card')) {
+      const link = e.target.querySelector('a');
+      if (link) link.focus();
     }
   });
 
-  // Azure Function form submission
+  // Contact Form Submission
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', async function (e) {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = contactForm.querySelector('#c-name')?.value || '';
-      const email = contactForm.querySelector('#c-email')?.value || '';
-      const message = contactForm.querySelector('#c-message')?.value || '';
+      const name = contactForm.querySelector('#comment-name')?.value || '';
+      const email = contactForm.querySelector('#comment-email')?.value || '';
+      const comment = contactForm.querySelector('#comment-comment')?.value || '';
+      const clientnum = contactForm.querySelector('#comment-clientnum')?.value || '';
 
-      const response = await fetch('https://your-function-app.azurewebsites.net/api/HttpFormSubmit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-      });
+      if (!name || !email || !comment) {
+        alert('Please fill out all required fields.');
+        return;
+      }
 
-      if (response.ok) {
-        alert('Message sent!');
-        contactForm.reset(); // ✅ Clears the form
-      } else {
-        alert('Error sending message.');
+      try {
+        const res = await fetch('http://localhost:3000/contactForm', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({name, email, comment, clientnum})
+        });
+
+        if (res.ok) {
+          alert('Your message has been submitted.');
+          contactForm.reset();
+        } else {
+          const errText = await res.text();
+          alert('Error: ' + errText);
+        }
+      } catch (err) {
+        alert('Connection error: ' + err.message);
       }
     });
   }
+
+  // Basic Search Logic (local JSON)
+  let INDEX = null;
+  const loadIndex = async () => {
+    if (INDEX) return INDEX;
+    try {
+      const res = await fetch('/searchIndex.json');
+      INDEX = await res.json();
+    } catch (err) {
+      console.warn('Failed to load search index:', err);
+      INDEX = [];
+    }
+    return INDEX;
+  };
+
+  const matches = (text, q) => text?.toLowerCase().includes(q.toLowerCase());
+  const renderResults = (results, sel) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    el.innerHTML = results.length
+      ? results.map((r) => `<article class="card"><h3><a href="${r.url}">${r.title}</a></h3><p>${r.snippet||''}</p></article>`).join('')
+      : '<div class="card"><p>No results found.</p></div>';
+  };
+
+  const runSearch = async (q, scope) => {
+    if (!q) return;
+    const idx = await loadIndex();
+    const results = idx.filter((i) => matches(i.title,q) || matches(i.snippet,q) || matches(i.content,q));
+    renderResults(results, '#search-results');
+  };
+
+  window.addEventListener('nenzee:search', (ev) => {
+    const {query, scope} = ev.detail || {};
+    runSearch(query, scope);
+  });
 })();
