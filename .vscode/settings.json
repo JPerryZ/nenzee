@@ -15,5 +15,6 @@
     "workbench.editor.autoLockGroups": {
         "default": true,
         "mssql.executionPlanView": true
-    }
+    },
+    "git.ignoreLimitWarning": true
 }
