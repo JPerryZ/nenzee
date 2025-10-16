@@ -3,30 +3,30 @@
 
   <!-- Main domain sitemap -->
   <sitemap>
-    <loc>D:\nenzee\nenzee\sitemap.xml</loc>
+    <loc>https://nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
   </sitemap>
 
   <!-- Subdomain: NextChapterInk -->
   <sitemap>
-    <loc>D:\NextChapterInk\sitemap.xml</loc>
+    <loc>https://NextChapterInk.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
   </sitemap>
 
   <!-- Subdomain: ProductionAssistance -->
   <sitemap>
-    <loc>D:\ProductionAssistance\sitemap.xml</loc>
+    <loc>https://ProductionAssistance.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
   </sitemap>
 
   <!-- Subdomain: EricasLearningCenter -->
   <sitemap>
-    <loc>D:\EricasLearningCenter\sitemap.xml</loc>
+    <loc>https://EricasLearningCenter.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
   </sitemap>
 
     <sitemap>
-    <loc>D:\Willow-Pine-Events\sitemap.xml</loc>
+    <loc>https://Willow-Pine-Events.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
   </sitemap>
 
