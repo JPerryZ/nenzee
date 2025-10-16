@@ -21,7 +21,12 @@
 
   <!-- Subdomain: EricasLearningCenter -->
   <sitemap>
-    <loc>D:\04-AlreadyBuiltSites\EricasLearningCenter\sitemap.xml</loc>
+    <loc>D:\EricasLearningCenter\sitemap.xml</loc>
+    <lastmod>2025-10-03</lastmod>
+  </sitemap>
+
+    <sitemap>
+    <loc>D:\Willow-Pine-Events\sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
   </sitemap>
 
