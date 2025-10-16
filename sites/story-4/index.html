@@ -1,0 +1,73 @@
+<!-- stories/story/index.html — Story landing page with chapter cards -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mudcreek — NextChapterInk</title>
+  <link rel="stylesheet" href="assets\css\main.css">
+  <link rel="main.js" href="assets\js\main.js">
+  <link rel="search.js" href="assets\js\search.js">
+  <link rel="comment.js" href="assets\js\comment.js">
+</head>
+
+<body>
+    <header role="banner">
+    <header class="container site-nav" role="banner">
+
+        <div class="logo" aria-hidden="true">
+          <a class="search-bar" role="search" aria-label="Site search">
+          <input id="site-search" class="search-input" type="search" 
+            placeholder="Search the entire site..." aria-label="Search site" />
+          <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
+
+          <a class="skip-link" href="#main"><img src="images\NNZLogo.png" 
+          alt="Main Page" height="40"/>
+          </a>  
+        </div>  
+
+  </header>
+
+  <header>
+    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="stories\story-1\Mudcreek.html">Stories</a>
+      <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
+    </nav>
+  </header>
+
+  <main id="main" class="container" role="main">
+
+    <h1>**BOLD: Story Title**</h1>
+    <p>**BOLD: Longer description of the story.**</p>
+
+    <section id="chapters" aria-labelledby="chapters-title">
+      <h2 id="chapters-title">Chapters</h2>
+      <div id="chapter-cards" class="grid">
+        <!-- 10 chapters; adjust as needed. Each chapter page should include comments UI. -->
+        <!-- Example: chapter-1 -->
+        <article class="card" data-chapter="chapter-1" tabindex="0">
+          <h3>Chapter 1 — **BOLD: Chapter Title**</h3>
+          <p>**BOLD: Brief summary of chapter 1.**</p>
+          <div class="chapter-card-footer">
+        </article>
+
+        <!-- copy and adjust for chapter-2..chapter-10 -->
+        <!-- ... -->
+      </div>
+    </section>
+
+
+    <footer class="site-footer">
+      <div><a href="../../index.html">← Home</a> • © **BOLD: Your Name**</div>
+    </footer>
+  </main>
+
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/search.js"></script>
+</body>
+</html>

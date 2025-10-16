@@ -1,65 +1,84 @@
-<!-- contact.html — dummy contact form; prepared for future SQL integration -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Nenzee</title>
-  <link rel="stylesheet" href="assets\css\main.css">
-  <link rel="main.js" href="assets\js\main.js">
-  <link rel="search.js" href="assets\js\search.js">
-  <link rel="comment.js" href="assets\js\comment.js">
-
-  <!-- Inline note: main.js handles nav behaviors and fetches searchIndex.json -->
-
+  <title>Contact — Nenzee.com</title>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
-  <header role="banner">
   <header class="container site-nav" role="banner">
-      
-      <div class="logo" aria-hidden="true">
-
-        <a class="search-bar" role="search" aria-label="Site search">
-          <input id="site-search" class="search-input" type="search" 
-            placeholder="Search the entire site..." aria-label="Search site" />
-          <button id="search-btn" class="btn" aria-label="Search">Search</button></a>
-
-        <a class="skip-link" href="#main"><img src="images\NNZLogo.png" 
-          alt="Main Page" height="40"/></a>      
-      
-      </a>  
-  
-  </div>  
-  </header>
-
-  <header>
+    <a class="skip-link" href="index.html">
+      <img src="images/NNZLogo.png" alt="Nenzee.com Home" height="40" width="40">
+    </a>
     <nav class="nav-links" role="navigation" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="stories/story-1/index.html">Stories</a>
-      <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
     </nav>
   </header>
 
-  <main id="contact-main" class="container">
+  <main class="container">
     <h1>Contact</h1>
-    <p>**BOLD: Replace with how you'd like visitors to reach you.**</p>
+    <form id="contactForm" role="form" aria-label="contact-form">
+      <label for="comment-name">Name</label><br>
+      <input id="comment-name" name="name" required><br>
 
-    <form id="contact-form" onsubmit="return false;" aria-label="Contact form">
-      <label for="c-name">Name</label><br />
-      <input id="c-name" required /><br />
-      <label for="c-email">Email</label><br />
-      <input id="c-email" type="email" required /><br />
-      <label for="c-message">Message</label><br />
-      <textarea id="c-message" rows="5" required></textarea><br />
-      <p class="contact-demo-note">This demo currently does not submit to a database. When ready, you can wire this to server-side SQL endpoints or Netlify Functions. See README for suggested services.</p>
-      <button id="c-submit" class="btn" type="button">Send (Dummy)</button>
+      <label for="comment-email">Email</label><br>
+      <input id="comment-email" name="email" type="email" required><br>
+
+      <label for="comment-message">Message</label><br>
+      <textarea id="comment-message" name="comment" rows="5" required></textarea><br>
+
+     <!-- <label for="comment-clientnum">Client Number</label><br>
+      <input id="comment-clientnum" name="clientnum"><br>
+      -->
+
+      <button id="comment-submit" class="btn" type="submit">Send</button>
     </form>
 
-  </main>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/comment.js"></script>
-  <script src="assets/js/search.js"></script>
+    <footer class="site-footer" aria-label="Footer navigation">
+      <div1><a class="skip-link" href="index.html">© Nenzee — 2025</a>
+      </div1>
+       <div2><a class="skip-link" href="admin.html">Admin</a>
+       </div2>
+    </footer>
+    
+</main>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name=document.getElementById("comment-name").value;
+      const email=document.getElementById("comment-email").value;
+      const comment=document.getElementById("comment-message").value;
+     // const clientnum=document.getElementById("comment-clientnum").value;
+
+     try {
+        const response=await fetch("http://localhost:3001/api/comment", {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({name,email,comment,clientnum})
+        });
+        const result=await response.json();
+        alert(result.message || result.error);
+        document.getElementById("contactForm").reset();
+      } catch(err) {
+        alert("Error connecting to server.");
+        console.error(err);
+      }
+    });
+  </script>
+
+  <!-- Azure Cosmos/Firebase (commented for future use)
+  <script type="module">
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    // import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    // const firebaseConfig = { ... };
+    // const app = initializeApp(firebaseConfig);
+    // const db = getFirestore(app);
+  </script>
+  -->
 </body>
 </html>

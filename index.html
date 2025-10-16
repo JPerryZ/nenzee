@@ -1,113 +1,72 @@
-<!-- index.html — Landing page (root) -->
-
 <!doctype html>
 <html lang="en">
-
 <head>
-  <title>NextChapterInk.nenzee.com</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="google-adsense-account" content="ca-pub-9429571484429929">
-  <link rel="stylesheet" href="assets\css\main.css">
-  <link rel="main.js" href="assets\js\main.js">
-  <link rel="search.js" href="assets\js\search.js">
-  <link rel="comment.js" href="assets\js\comment.js">
-          <!--  main.js handles nav behaviors and fetches searchIndex.json -->
+  <title>Nenzee.com</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="sitemap_index" href="assets/sitemaps\sitemap_index.xml">
+  <link rel="sitemap" href="assets/sitemaps\sitemap.xml">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9429571484429929"
+  crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header role="banner">
   <header class="container site-nav" role="banner">
-      
-      <div class="logo" aria-hidden="true">
-
-        <a class="search-bar" role="search" aria-label="Site search">
-          <input id="site-search" class="search-input" type="search" 
-            placeholder="Search the entire site..." aria-label="Search site" />
-          <button id="search-btn" class="btn" height="40px"; aria-label="Search">Search</button></a>
-
-        <a class="skip-link" href="#main"><img src="images\NextChapLogo.png" 
-          alt="Main Page" height="70" width="70"/></a>      
-        </a>  
-  
-  </div>  
-  </header>
-
-  <header>
-    <nav class="nav-links" role="navigation" aria-label="Main navigation">
+    <a class="skip-link" href="index.html">
+      <img src="images/NNZLogo.png" alt="Nenzee.com Home" height="40" width="40">
+    </a>
+    <nav class="nav-links" role="navigation" aria-label="main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="admin.html" aria-hidden="true">Admin</a> <!-- admin link is intentionally visible for demo -->
     </nav>
   </header>
 
-  <main id="main" class="container" role="main">
-
-    <!-- Hero section with welcome message -->
-
-    <section aria-labelledby ="hero-title">
-      <img src="images\NextChapterHero.png" height="800px" width="800px" alt="Main Page"/> </h1>
-      <p class="hero-subheading">Stories at Your Fingertips</p>
+  <main class="container" role="main">
+    <section aria-labelledby="hero-title">
+      <h1 id="hero-title">Nenzee.com</h1>
+      <p class="hero-subheading"></p>
     </section>
 
-    <section aria-labelledby="stories-title" class="stories-section">
-      <h2 id="stories-title">Explore Further</h2>
-
-      <!-- Four main cards -->
-      
+    <section aria-labelledby="sites-title" class="sites-section">
+      <h2 id="sites-title">Website Compilations:</h2>
       <div id="main-cards" class="grid" aria-live="polite">
-        
-        <!-- Each card loads story-*. The data-* attributes help card-local search -->
-
-        <article class="card" data-story="story-1" role="article" tabindex="0">
-          <h3>Mudcreek</h3>
-          <p>The Knights of Mudcreek</p>
-          <div class="card-footer">
-            <a class="btn" href="stories\Mudcreek\mudcreek.html" aria-label="Open Story 1">Open story</a>
-            <a class="btn secondary card-chapters-link" href="stories/Mudcreek/index.html#chapters">Chapters</a>
-          </div>
+        <article class="card">
+          <h3><a class="btn" href="https://nextchapterink.nenzee.com/">NextChapterInk</a></h3>
+          <p>A Site for Stories and Ideas to Come Alive</p>
         </article>
 
-        <article class="card" data-story="story-2" role="article" tabindex="0">
-          <h3>**Coming Soon*</h3>
-          <p>**Keep on the lookout**</p>
-          <div class="card-footer card-footer-auto-margin">
-            <a class="btn" href="stories/story-2/index.html">Open story</a>
-          </div>
+        <article class="card">
+          <h3><a class="btn" href="https://productionassistance.nenzee.com/">Production Assistance</a></h3>
+          <p>Landing page for production assistance services.</p>
         </article>
 
-        <article class="card" data-story="story-3" role="article" tabindex="0">
-          <h3>**Coming Soon*</h3>
-          <p>**Keep on the lookout**</p>
-          <div class="card-footer">
-            <a class="btn" href="stories/story-3/index.html">Open story</a>
-          </div>
+        <article class="card">
+          <h3><a class="btn" href="https://EricasLearningCenter.nenzee.com/">Erica’s Learning Center</a></h3>
+          <p>Informational site for Erica's Learning Center.</p>
         </article>
 
-        <article class="card" data-story="story-4" role="article" tabindex="0">
-          <h3>**Coming Soon*</h3>
-          <p>**Keep on the lookout**</p>
-          <div class="card-footer">
-            <a class="btn" href="stories/story-4/index.html">Open story</a>
-          </div>
+        <article class="card">
+          <h3><a class="btn" href="https://Willow-Pine-Events.nenzee.com/">Willow & Pine Events</a></h3>
+          <p>Fictional landing page for event coordination services.</p>
         </article>
       </div>
     </section>
 
-    <section id="search-results" aria-live="polite"></section>
+  <footer class="site-footer" aria-label="Footer navigation">
+    <div1><a class="skip-link" href="index.html">© Nenzee — 2025</a>
+    </div1>
+     <div2><a class="skip-link" href="admin.html">Admin</a>
+     </div2>
+  </footer>
 
-    <footer class="site-footer">
-      <div>© NextChapterInk — Nenzee.com : 2025 </div>
-    </footer>
-  </main>
+</main>
+
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/search.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9429571484429929"
-     crossorigin="anonymous"></script>
-
-  <!-- main.js sets up search button to invoke search.js functionality -->
-
-  </body>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9429571484429929" crossorigin="anonymous"></script>
+</body>
 </html>
