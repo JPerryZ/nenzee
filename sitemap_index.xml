@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemap_index xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Main domain sitemap -->
-  <sitemap>
+  <url>
     <loc>https://nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
-  </sitemap>
+  </url>
 
   <!-- Subdomain: NextChapterInk -->
-  <sitemap>
+  <url>
     <loc>https://NextChapterInk.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
-  </sitemap>
+  </url>
 
   <!-- Subdomain: ProductionAssistance -->
-  <sitemap>
+  <url>
     <loc>https://ProductionAssistance.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
-  </sitemap>
+  </url>
 
   <!-- Subdomain: EricasLearningCenter -->
-  <sitemap>
+  <url>
     <loc>https://EricasLearningCenter.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
-  </sitemap>
+  </url>
 
-    <sitemap>
+    <url>
     <loc>https://Willow-Pine-Events.nenzee.com/sitemap.xml</loc>
     <lastmod>2025-10-03</lastmod>
-  </sitemap>
+  </url>
 
-</sitemap_index>
+</urlset>
+
+
+
+  <url>
+    <loc>https://www.example.com/foo.html</loc>
+    <lastmod>2022-06-04</lastmod>
+  </url>
