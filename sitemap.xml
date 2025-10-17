@@ -2,22 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://nenzee.com/index</loc>
+    <loc>https://NextChapterInk.nenzee.com/index</loc>
     <lastmod>2025-10-03</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nenzee.com/about</loc>
+    <loc>https://NextChapterInk.nenzee.com/about</loc>
     <lastmod>2025-10-03</lastmod>
-  </url>
-
-    <url>
-    <loc>https://nenzee.com/admin</loc>
-    <lastmod>2025-10-03</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nenzee.com/contact</loc>
+    <loc>https://NextChapterInk.nenzee.com/admin</loc>
     <lastmod>2025-10-03</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://NextChapterInk.nenzee.com/contact</loc>
+    <lastmod>2025-10-03</lastmod>
+    <priority>1.0</priority>
   </url>
 
-</urlset>
+</urls>
